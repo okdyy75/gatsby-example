@@ -5,7 +5,11 @@ const config: GatsbyConfig = {
     title: `gatsby-img-example`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
+  ],
 }
 
 export default config
