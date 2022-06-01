@@ -1,0 +1,34 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: yarn Install
+        run: yarn install
+
+      - name: Deploy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          yarn run deploy -r https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
