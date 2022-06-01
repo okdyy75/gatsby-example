@@ -1,3 +1,35 @@
+
+# Gatsbyの実例サイト
+
+## 環境
+
+- Gatsby 4.15.0
+- React 17.0.1
+- typescript 4.6.4
+
+### 基本コマンド
+
+```
+# プロジェクト作成
+npm init gatsby gatsby-example -y -ts
+
+# npmが遅いのでyarnを使う
+yarn install
+
+# 起動確認
+yarn run develop
+
+# キャッシュクリア
+gatsby clean
+
+# デプロイ
+yarn deploy
+
+```
+
+
+## 以下初期 README
+
 <p align="center">
   <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
