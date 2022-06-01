@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "ねこライター",
+        "image": "../images/cat.png",
+        "image_url": "https://placehold.jp/38/ccc/999/500x500.jpg?text=cat"
+    },
+    {
+        "id": 2,
+        "name": "いぬライター",
+        "image": "../images/dog.png",
+        "image_url": "https://placehold.jp/38/ccc/999/500x500.jpg?text=dog"
+    },
+    {
+        "id": 3,
+        "name": "コアライター",
+        "image": "../images/koala.png",
+        "image_url": "https://placehold.jp/38/ccc/999/500x500.jpg?text=koala"
+    }
+]
