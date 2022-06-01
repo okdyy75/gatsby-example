@@ -1,10 +1,13 @@
 import type { GatsbyConfig } from "gatsby"
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 const config: GatsbyConfig = {
+  pathPrefix: "/gatsby-example",
   siteMetadata: {
     siteTitle: `GatsbyExample`,
-    siteDescription: `gatsbyの実例サイトです`,
-    siteUrl: `http://localhost:8000`,
+    siteDescription: `Gatsbyの実例サイトです`,
+    siteUrl: isProduction ? 'https://okdyy75.github.io' : 'http://localhost:8000',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

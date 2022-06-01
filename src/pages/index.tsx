@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, withPrefix } from "gatsby"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import dogGif from "../images/dog.gif"
@@ -17,7 +17,7 @@ const IndexPage = ({ data }: any) => {
     <Layout>
       <h1>そのまま表示編</h1>
       <h2>static フォルダに配置</h2>
-      <img src="/logo.png" />
+      <img src={`${withPrefix('logo.png')}`} />
       <hr />
 
       <h2>import して表示</h2>
@@ -59,14 +59,14 @@ const IndexPage = ({ data }: any) => {
       <h1>Json から画像データを扱う編</h1>
       <h2>Json からローカル画像を表示</h2>
       {writers.map((writer: any) => (
-        <div>
+        <div key={writer.id}>
           {writer.name}
           <GatsbyImage image={getImage(writer.image)!} alt={writer.name} />
         </div>
       ))}
       <h2>Json から外部画像を表示（placehold.jpを使用）</h2>
       {writers.map((writer: any) => (
-        <div>
+        <div key={writer.id}>
           {writer.name}
           <GatsbyImage image={getImage(writer.localImage)!} alt={writer.name} />
           <hr />
@@ -104,6 +104,7 @@ export const query = graphql`
     }
     allWriterJson {
       nodes {
+        id
         name
         image {
           childImageSharp {

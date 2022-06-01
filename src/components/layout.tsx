@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { getSrc } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, withPrefix } from "gatsby"
 
 const Layout = ({
   children,
@@ -42,7 +42,7 @@ const Layout = ({
     `
   )
 
-  const { pathname } = useLocation()
+  const { href } = useLocation()
   const {
     site: {
       siteMetadata: { siteUrl, siteTitle, siteDescription },
@@ -51,11 +51,9 @@ const Layout = ({
     siteOgImage,
   } = data
 
-  console.log("siteOgImage", siteOgImage)
-
   const siteIconUrl = siteUrl + getSrc(siteIcon)
-  const siteOgImageUrl = siteUrl + siteOgImage.childImageSharp.resize.src
-  const canonicalUrl = siteUrl + pathname
+  const siteOgImageUrl = siteUrl +  withPrefix(siteOgImage.childImageSharp.resize.src)
+  const canonicalUrl = href
 
   title = title || siteTitle
   description = description || siteDescription
@@ -68,7 +66,7 @@ const Layout = ({
         <title>{title}</title>
         <meta name="description" content={description}></meta>
         <meta name="thumbnail" content={ogImageUrl}></meta>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={withPrefix('favicon.ico')} />
         <meta property="og:locale" content="ja_JP"></meta>
         <meta property="og:title" content={title}></meta>
         <meta property="og:description" content={description}></meta>
