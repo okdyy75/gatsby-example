@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-img-example",
+  "name": "gatsby-example",
   "version": "1.0.0",
   "private": true,
-  "description": "gatsby-img-example",
+  "description": "gatsby-example",
   "author": "okdyy75",
   "keywords": [
     "gatsby"
