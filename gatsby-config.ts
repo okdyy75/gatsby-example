@@ -2,8 +2,9 @@ import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `gatsby-img-example`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteTitle: `GatsbyExample`,
+    siteDescription: `gatsbyの実例サイトです`,
+    siteUrl: `http://localhost:8000`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
