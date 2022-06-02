@@ -1,6 +1,6 @@
 import type { GatsbyConfig } from "gatsby"
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === "production"
 
 const config: GatsbyConfig = {
   pathPrefix: "/gatsby-example",
@@ -10,6 +10,14 @@ const config: GatsbyConfig = {
     siteUrl: isProduction ? 'https://okdyy75.github.io' : 'http://localhost:8000',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-N1G3EQSPBZ", // Google Analytics / GA
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
